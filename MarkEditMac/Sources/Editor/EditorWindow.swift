@@ -64,6 +64,9 @@ final class EditorWindow: NSWindow {
   /// `(isFullscreen, toolbarMode, reduceTransparency, prefersTintedToolbar)`.
   /// Safe to call repeatedly; also runs implicitly after each layout pass.
   func updateTitleBarAppearance(clearCaches: Bool = true) {
+    // Sidebar split views lay out the titlebar per section, some of the views below don't exist then
+    let hasSidebar = vaultViewController != nil
+
     if clearCaches {
       cachedTitlebarBackgroundView = nil
       cachedTitlebarDecorationView = nil
@@ -84,7 +87,7 @@ final class EditorWindow: NSWindow {
 
       // Blend the color of contents behind the window
       (view as? NSVisualEffectView)?.blendingMode = .behindWindow
-    } else {
+    } else if !hasSidebar {
       Logger.assertFail("Missing cachedTitlebarBackgroundView")
     }
 
@@ -105,7 +108,7 @@ final class EditorWindow: NSWindow {
         Logger.assertFail("Missing setDrawsBottomSeparator: in _NSTitlebarDecorationView")
         view.isHidden = true
       }
-    } else {
+    } else if !hasSidebar {
       Logger.assertFail("Missing cachedTitlebarDecorationView")
     }
 

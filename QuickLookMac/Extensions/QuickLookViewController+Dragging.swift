@@ -50,12 +50,10 @@ extension QuickLookViewController {
     openRecognizer.delaysPrimaryMouseButtonEvents = false
     scrollbarDragRecognizer.delaysPrimaryMouseButtonEvents = true
 
-    if #available(macOS 27.0, *) {
-      openRecognizer.isCancellableByScrollGesture = true
-      scrollbarClickRecognizer.isCancellableByScrollGesture = true
-      scrollbarDragRecognizer.minimumNumberOfTouches = 1
-      scrollbarDragRecognizer.maximumNumberOfTouches = 1
-    }
+    openRecognizer.isCancellableByScrollGesture = true
+    scrollbarClickRecognizer.isCancellableByScrollGesture = true
+    scrollbarDragRecognizer.minimumNumberOfTouches = 1
+    scrollbarDragRecognizer.maximumNumberOfTouches = 1
 
     for recognizer in [openRecognizer, scrollbarClickRecognizer, scrollbarDragRecognizer] {
       recognizer.allowedTouchTypes = .direct

@@ -232,10 +232,8 @@ private extension ExtensionsWindowController {
     group.visibilityPriority = .high
     group.label = Localized.Extension.windowTitle
 
-    // [macOS 27] Use "tabs" role, the default style has vertical dividers
-    if #available(macOS 27.0, *) {
-      group.role = .tabs
-    }
+    // Use "tabs" role, the default style has vertical dividers
+    group.role = .tabs
 
     modeControl = group
     updateModeControl()

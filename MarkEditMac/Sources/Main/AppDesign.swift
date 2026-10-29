@@ -17,10 +17,6 @@ enum AppDesign {
    [macOS 27] Apple Bug: `Ask Siri` and `Show Writing Tools` are both missing.
    */
   static var forceWritingTools: Bool {
-    guard #available(macOS 27.0, *) else {
-      return false
-    }
-
     // Don't use NSWritingToolsCoordinator.isWritingToolsAvailable here,
     // it returns `false` when "New Siri" is enabled.
     return SystemLanguageModel.default.isAvailable

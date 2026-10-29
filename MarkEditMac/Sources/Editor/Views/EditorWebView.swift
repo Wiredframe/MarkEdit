@@ -104,7 +104,7 @@ final class EditorWebView: WKWebView {
     }
 
     // Always enable "Show Writing Tools"
-    if #available(macOS 27.0, *), AppDesign.forceWritingTools {
+    if AppDesign.forceWritingTools {
       AppWritingTools.ensureWritingTools(menu: menu, target: self)
     }
 

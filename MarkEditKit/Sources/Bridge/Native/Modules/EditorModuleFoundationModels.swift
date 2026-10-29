@@ -27,25 +27,17 @@ public final class EditorModuleFoundationModels: NativeModuleFoundationModels {
   }
 
   public func availability(modelName: String) async -> String {
-    if #available(anyAppleOS 27.0, *) {
-      return availability(of: languageModel(named: modelName)).jsonEncoded
-    }
-
-    return defaultModelAvailability.jsonEncoded
+    availability(of: languageModel(named: modelName)).jsonEncoded
   }
 
   public func createSession(modelName: String, instructions: String?) async -> String? {
     let identifier = UUID().uuidString
     let session: LanguageModelSession
 
-    if #available(anyAppleOS 27.0, *) {
-      session = LanguageModelSession(
-        model: languageModel(named: modelName),
-        instructions: instructions
-      )
-    } else {
-      session = LanguageModelSession(instructions: instructions)
-    }
+    session = LanguageModelSession(
+      model: languageModel(named: modelName),
+      instructions: instructions
+    )
 
     sessionPool[identifier] = session
     return identifier
@@ -170,15 +162,12 @@ private extension EditorModuleFoundationModels {
   func buildPrompt(_ promptText: String, attachments: [String]?) -> Prompt {
     promptText
 
-    if #available(anyAppleOS 27.0, *) {
-      for image in (attachments ?? []).compactMap(CIImage.init(base64Encoded:)) {
-        Attachment(image)
-      }
+    for image in (attachments ?? []).compactMap(CIImage.init(base64Encoded:)) {
+      Attachment(image)
     }
   }
 }
 
-@available(anyAppleOS 27.0, *)
 private extension EditorModuleFoundationModels {
   func languageModel(named modelName: String) -> any LanguageModel {
     switch modelName {

@@ -88,7 +88,6 @@ enum AppWritingTools {
     tool != .smartReply && tool != .compose
   }
 
-  @available(macOS 27.0, *)
   static func ensureWritingTools(menu: NSMenu, target: AnyObject) {
     guard !(menu.items.contains { $0.identifier == .writingTools }) else {
       return

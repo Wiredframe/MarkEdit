@@ -59,7 +59,7 @@ public extension NSMenuItem {
   }
 
   func ensureTitleVisibility() {
-    guard #available(macOS 27.0, *), attributedTitle == nil else {
+    guard attributedTitle == nil else {
       return
     }
 
@@ -68,10 +68,6 @@ public extension NSMenuItem {
   }
 
   func ensureImageVisibility() {
-    guard #available(macOS 27.0, *) else {
-      return
-    }
-
     preferredImageVisibility = .visible
   }
 }

@@ -84,7 +84,7 @@ private extension AppDelegate {
     }
 
     // [macOS 27] Always enable "Writing Tools"
-    if #available(macOS 27.0, *), AppDesign.forceWritingTools {
+    if AppDesign.forceWritingTools {
       // Prevent duplicate items
       editWritingToolsItem?.isHidden = !(activeWritingToolsItem?.isHidden ?? true)
 

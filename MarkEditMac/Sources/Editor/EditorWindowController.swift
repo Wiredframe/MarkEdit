@@ -162,7 +162,7 @@ extension EditorWindowController {
 
 private extension EditorWindowController {
   var editorViewController: EditorViewController? {
-    contentViewController as? EditorViewController
+    window?.editorViewController
   }
 
   var shouldWaitResetting: Bool {

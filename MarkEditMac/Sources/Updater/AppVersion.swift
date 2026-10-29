@@ -9,7 +9,7 @@ import AppKitExtensions
 import Foundation
 
 /**
- [GitHub Releases API](https://api.github.com/repos/MarkEdit-app/MarkEdit/releases/latest)
+ [GitHub Releases API](https://api.github.com/repos/Wiredframe/MarkEdit/releases/latest)
  */
 struct AppVersion: Decodable, Sendable {
   private static let universalArchive = "UpdateArchive.zip"

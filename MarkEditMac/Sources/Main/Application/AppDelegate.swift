@@ -84,6 +84,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     AppDesign.migrateMainMenuIcons(delegate: self)
+    installVaultMenuItems()
+    VaultManager.shared.restoreVaults()
     appearanceObservation = NSApp.observe(\.effectiveAppearance) { _, _ in
       Task { @MainActor in
         AppTheme.current.updateAppearance()
@@ -206,6 +208,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
   func shouldOpenOrCreateDocument() -> Bool {
     guard !ApplicationEnvironment.isRunningTests else {
+      return false
+    }
+
+    // Restored vault windows replace the untitled document at launch
+    if VaultManager.shared.hasOpenVaults {
       return false
     }
 

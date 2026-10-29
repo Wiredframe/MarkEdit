@@ -236,6 +236,22 @@ enum Localized {
     static let cannotBeUndone = String(localized: "This action cannot be undone.", comment: "Alert message for cannot undo")
   }
 
+  enum Vault {
+    static let openFolder = String(localized: "Open Folder…", comment: "Menu item to open a folder as a vault")
+    static let openFolderPrompt = String(localized: "Open", comment: "Prompt of the open panel for vault folders")
+    static let openFolderMessage = String(localized: "Choose a folder to browse its notes in the sidebar.", comment: "Message of the open panel for vault folders")
+    static let noFileOpen = String(localized: "No file is open", comment: "Placeholder in a vault window without an open file")
+    static let open = String(localized: "Open", comment: "Context menu item in the vault sidebar, open the file in the editor")
+    static let openWithDefaultApp = String(localized: "Open with Default App", comment: "Context menu item in the vault sidebar, open the file in its default app")
+    static let newNote = String(localized: "New Note", comment: "Context menu item in the vault sidebar, create a markdown file")
+    static let newFolder = String(localized: "New Folder", comment: "Context menu item in the vault sidebar, create a folder")
+    static let rename = String(localized: "Rename", comment: "Context menu item in the vault sidebar, rename the item")
+    static let moveToTrash = String(localized: "Move to Trash", comment: "Context menu item in the vault sidebar, move the item to the trash")
+    static let showInFinder = String(localized: "Show in Finder", comment: "Context menu item in the vault sidebar, reveal the item in Finder")
+    static let untitledNote = String(localized: "Untitled", comment: "Default file name for a new note in the vault sidebar")
+    static let untitledFolder = String(localized: "Untitled Folder", comment: "Default name for a new folder in the vault sidebar")
+  }
+
   enum Scripting {
     static let missingCommandErrorMessage = String(localized: "Couldn’t find a command to handle incoming Apple Event.", comment: "Script error when MarkEdit has no command to handle the incoming Apple Event")
     static let missingArgumentErrorMessage = String(localized: "Argument “%@” not found in event descriptor, the descriptor is likely malformed.", comment: "Script error when a command argument is missing due to a corrupted Apple Event")

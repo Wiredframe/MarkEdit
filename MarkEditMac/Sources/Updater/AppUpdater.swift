@@ -13,7 +13,7 @@ import MarkEditKit
 enum AppUpdater {
   private enum Constants {
     static let defaultOSVer = "1.0.0"
-    static let endpoint = "https://api.github.com/repos/MarkEdit-app/MarkEdit/releases/latest"
+    static let endpoint = "https://api.github.com/repos/Wiredframe/MarkEdit/releases/latest"
     static let minimumDownloadDuration: TimeInterval = 2.5
     static let decoder = {
       let decoder = JSONDecoder()

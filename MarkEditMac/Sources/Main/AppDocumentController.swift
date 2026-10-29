@@ -123,6 +123,11 @@ final class AppDocumentController: NSDocumentController {
       return
     }
 
+    if url.isVaultFolder {
+      VaultManager.shared.openVault(at: url)
+      return completionHandler(nil, false, nil)
+    }
+
     if url.isBinaryFile {
       // Dead loop prevention
       if Bundle.main.isDefaultApp(toOpen: url) {
@@ -223,6 +228,12 @@ private extension NSOpenPanel {
 }
 
 private extension URL {
+  /// Plain folders open as vaults, packages like TextBundles are documents.
+  var isVaultFolder: Bool {
+    let values = try? resourceValues(forKeys: [.isDirectoryKey, .isPackageKey])
+    return values?.isDirectory == true && values?.isPackage != true && pathExtension.lowercased() != "textbundle"
+  }
+
   /// Rejects binary files and directories other than TextBundles.
   func ensureCanOpenInternally() throws {
     let values = try resourceValues(forKeys: [.isRegularFileKey, .isDirectoryKey])

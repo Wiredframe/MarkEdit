@@ -23,6 +23,7 @@ final class EditorDocument: NSDocument {
   var isOutdated = false // The content is outdated, needs an update
   var isReadOnlyMode = false
   var isTerminating = false
+  var skipsClosedTabHistory = false // Vault windows swap documents, which is not closing a tab
 
   // For tab restoration
   var lastTabIndex: Int?
@@ -130,6 +131,18 @@ final class EditorDocument: NSDocument {
         }
       }
     #endif
+  }
+
+  /// Shows the document in an existing vault window instead of creating a new window.
+  func attachToVault(windowController: EditorWindowController) -> EditorViewController {
+    // Note hostViewController is a weak reference, the caller must retain the returned controller
+    let contentVC = EditorPreloader.shared.takeViewController()
+    isTerminating = false
+    skipsClosedTabHistory = false
+    hostViewController = contentVC
+    hostViewController?.representedObject = self
+    addWindowController(windowController)
+    return contentVC
   }
 
   func waitUntilSaveCompleted(userInitiated: Bool = false, delay: TimeInterval = 0.6) async {
@@ -288,7 +301,7 @@ extension EditorDocument {
   }
 
   override func close() {
-    if !isTerminating {
+    if !isTerminating && !skipsClosedTabHistory {
       saveToClosedTabHistory()
     }
 

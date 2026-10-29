@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8220A1D55833E41F27874A9C /* VaultManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591BA6E817EC2C4867F1153F /* VaultManager.swift */; };
+		ACD3B65BA5AE86ED3489DD2A /* VaultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E5E3A25AC1B939ECCD958C /* VaultViewController.swift */; };
+		0DEE1A94E5F2F6EB8BAFC281 /* VaultFileBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48D7E39E87582D52B33CD66 /* VaultFileBrowserViewController.swift */; };
+		7AEF2D4E79FECD47644A2156 /* VaultFileWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5D58DE9514782EC1F9185F4 /* VaultFileWatcher.swift */; };
+		3E2BDB36CEF1D4ED23CEA8F9 /* VaultFileNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6E2185704BD5A04EB43045 /* VaultFileNode.swift */; };
+		8CB16123B6711422D14DD3F2 /* AppDelegate+Vault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89169052184DAAE4757F464E /* AppDelegate+Vault.swift */; };
 		0A1100013010000000000001 /* QuickSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0A1100013010000000000002 /* QuickSearchUI */; };
 		0A1100013010000000000003 /* AppDelegate+QuickSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1100013010000000000004 /* AppDelegate+QuickSearch.swift */; };
 		0A1100023010000000000001 /* QuickSearchCore in Frameworks */ = {isa = PBXBuildFile; productRef = 0A1100023010000000000002 /* QuickSearchCore */; };
@@ -191,6 +197,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		591BA6E817EC2C4867F1153F /* VaultManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultManager.swift; sourceTree = "<group>"; };
+		72E5E3A25AC1B939ECCD958C /* VaultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultViewController.swift; sourceTree = "<group>"; };
+		F48D7E39E87582D52B33CD66 /* VaultFileBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultFileBrowserViewController.swift; sourceTree = "<group>"; };
+		F5D58DE9514782EC1F9185F4 /* VaultFileWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultFileWatcher.swift; sourceTree = "<group>"; };
+		CA6E2185704BD5A04EB43045 /* VaultFileNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaultFileNode.swift; sourceTree = "<group>"; };
+		89169052184DAAE4757F464E /* AppDelegate+Vault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Vault.swift"; sourceTree = "<group>"; };
 		0A1100013010000000000004 /* AppDelegate+QuickSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+QuickSearch.swift"; sourceTree = "<group>"; };
 		84FB00EF2C6C4AED00850E94 /* AppWritingTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWritingTools.swift; sourceTree = "<group>"; };
 		8703C171303E7DCF00A896D0 /* QuickLookWindowSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLookWindowSize.swift; sourceTree = "<group>"; };
@@ -371,6 +383,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F1046ECD174A7FE31E067794 /* Vault */ = {
+			isa = PBXGroup;
+			children = (
+				591BA6E817EC2C4867F1153F /* VaultManager.swift */,
+				72E5E3A25AC1B939ECCD958C /* VaultViewController.swift */,
+				F48D7E39E87582D52B33CD66 /* VaultFileBrowserViewController.swift */,
+				F5D58DE9514782EC1F9185F4 /* VaultFileWatcher.swift */,
+				CA6E2185704BD5A04EB43045 /* VaultFileNode.swift */,
+				89169052184DAAE4757F464E /* AppDelegate+Vault.swift */,
+			);
+			path = Vault;
+			sourceTree = "<group>";
+		};
 		870A5199294700DE0095C7EB = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +479,7 @@
 		870A51C52947103A0095C7EB /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				F1046ECD174A7FE31E067794 /* Vault */,
 				873D6403295FD2FF0095DEF7 /* Main */,
 				870A51C429470D830095C7EB /* Editor */,
 				87A35DF830026B720079CF08 /* Extension */,
@@ -975,6 +1001,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8220A1D55833E41F27874A9C /* VaultManager.swift in Sources */,
+				ACD3B65BA5AE86ED3489DD2A /* VaultViewController.swift in Sources */,
+				0DEE1A94E5F2F6EB8BAFC281 /* VaultFileBrowserViewController.swift in Sources */,
+				7AEF2D4E79FECD47644A2156 /* VaultFileWatcher.swift in Sources */,
+				3E2BDB36CEF1D4ED23CEA8F9 /* VaultFileNode.swift in Sources */,
+				8CB16123B6711422D14DD3F2 /* AppDelegate+Vault.swift in Sources */,
 				8725E0822977EF46006A4961 /* EditorViewController+Toolbar.swift in Sources */,
 				874BE6F429BB37FA002F83BA /* IntentProvider.swift in Sources */,
 				87B3ED5D2CBCADD6001FA6CE /* NSDocumentController+Extras.swift in Sources */,
@@ -1444,7 +1476,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.cyan.markedit.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.wiredframe.markedit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 6.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarkEdit.app/Contents/MacOS/MarkEdit";
@@ -1462,7 +1494,7 @@
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.cyan.markedit.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = de.wiredframe.markedit.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 6.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MarkEdit.app/Contents/MacOS/MarkEdit";

@@ -23,7 +23,7 @@ extension AppDelegate {
   static func refocusSourceWindow(_ window: NSWindow) async throws {
     window.makeKeyAndOrderFront(nil)
 
-    guard let editor = window.contentViewController as? EditorViewController else {
+    guard let editor = window.editorViewController else {
       return
     }
 
@@ -170,7 +170,7 @@ extension Localized {
 
 private extension AppDelegate {
   func quickSearchDocument(in window: NSWindow?) -> QuickSearchDocument? {
-    guard let editor = window?.contentViewController as? EditorViewController, let document = editor.document else {
+    guard let editor = window?.editorViewController, let document = editor.document else {
       return nil
     }
 
@@ -231,7 +231,7 @@ private extension AppDelegate {
   var quickSearchTintColor: NSColor? {
     let theme = AppTheme.current
 
-    if let editor = quickSearchSourceWindow?.contentViewController as? EditorViewController {
+    if let editor = quickSearchSourceWindow?.editorViewController {
       return editor.transientTintColor(for: theme)
     }
 
